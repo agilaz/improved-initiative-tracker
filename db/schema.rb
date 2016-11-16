@@ -10,26 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116041340) do
+ActiveRecord::Schema.define(version: 20161116221055) do
 
   create_table "creatures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "description"
-    t.integer  "armorClass",            default: 0
-    t.integer  "combatManeuverDefense", default: 0
-    t.integer  "maxHitPoints",          default: 0
-    t.integer  "strength",              default: 10
-    t.integer  "dexterity",             default: 10
-    t.integer  "constitution",          default: 10
-    t.integer  "intelligence",          default: 10
-    t.integer  "wisdom",                default: 10
-    t.integer  "charisma",              default: 10
-    t.integer  "fortitude",             default: 0
-    t.integer  "reflex",                default: 0
-    t.integer  "will",                  default: 0
-    t.integer  "initiative",            default: 0
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.integer  "armor_class",             default: 0
+    t.integer  "combat_maneuver_defense", default: 0
+    t.integer  "max_hit_points",          default: 0
+    t.integer  "strength",                default: 10
+    t.integer  "dexterity",               default: 10
+    t.integer  "constitution",            default: 10
+    t.integer  "intelligence",            default: 10
+    t.integer  "wisdom",                  default: 10
+    t.integer  "charisma",                default: 10
+    t.integer  "fortitude",               default: 0
+    t.integer  "reflex",                  default: 0
+    t.integer  "will",                    default: 0
+    t.integer  "initiative",              default: 0
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.string   "type"
   end
 
   create_table "statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -39,16 +40,16 @@ ActiveRecord::Schema.define(version: 20161116041340) do
     t.boolean  "repeatSave"
     t.string   "saveType"
     t.integer  "saveDC"
-    t.integer  "strChange",   default: 0
-    t.integer  "dexChange",   default: 0
-    t.integer  "conChange",   default: 0
-    t.integer  "intChange",   default: 0
-    t.integer  "wisChange",   default: 0
-    t.integer  "chaChange",   default: 0
-    t.integer  "creature_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.index ["creature_id"], name: "index_statuses_on_creature_id", using: :btree
+    t.integer  "strChange",             default: 0
+    t.integer  "dexChange",             default: 0
+    t.integer  "conChange",             default: 0
+    t.integer  "intChange",             default: 0
+    t.integer  "wisChange",             default: 0
+    t.integer  "chaChange",             default: 0
+    t.integer  "encounter_creature_id"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.index ["encounter_creature_id"], name: "index_statuses_on_encounter_creature_id", using: :btree
   end
 
 end

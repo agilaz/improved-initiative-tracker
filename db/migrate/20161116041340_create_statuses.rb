@@ -13,10 +13,10 @@ class CreateStatuses < ActiveRecord::Migration[5.0]
       t.integer "intChange", :default => 0
       t.integer "wisChange", :default => 0
       t.integer "chaChange", :default => 0
-      t.integer "creature_id"
+      t.integer "encounter_creature_id"
       t.timestamps
     end
-    add_index("statuses", "creature_id")
+    add_index("statuses", "encounter_creature_id")
   end
 
   def down

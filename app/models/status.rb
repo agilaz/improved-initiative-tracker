@@ -1,4 +1,4 @@
 class Status < ApplicationRecord
-  belongs_to :creature
+  belongs_to :encounter_creature
 
 end
