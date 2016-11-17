@@ -1,0 +1,35 @@
+<h1>Main#index</h1>
+<table class="listing" summary="Encounter">
+  <tr class="header">
+    <th>Init</th>
+    <th>Name</th>
+    <th>AC</th>
+    <th>Statuses</th>
+    <th>Details</th>
+    <th>Remove</th>
+  </tr>
+  <% @creatures.each do |creature| %>
+      <tr>
+        <td><%= creature.initiative %></td>
+        <td><%= creature.name %></td>
+
+        <td><%= creature.armor_class %></td>
+        <td>
+          <table class="statuses">
+            <tr>
+              <% creature.statuses.each do |status| %>
+                  <td>
+                    <%= status.name %>: <%= status.duration %>
+                  </td>
+              <% end %>
+            </tr>
+          </table>
+
+        </td>
+        <td>View</td>
+        <td><strong>X</strong></td>
+
+      </tr>
+  <% end %>
+</table>
+<%= button_to("Next turn", :action => "cycle_list") %>
