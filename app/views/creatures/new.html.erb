@@ -1,0 +1,9 @@
+<h1>Creatures#new</h1>
+<%= link_to("<< Back to creature list", creatures_path) %>
+<div class="creatures form">
+  <%= form_for(@creature) do |f| %>
+      <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+      <%= f.submit("Create new creature") %>
+  <% end %>
+</div>

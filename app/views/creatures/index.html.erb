@@ -1,0 +1,24 @@
+<h1>Creatures#index</h1>
+<%= link_to("<< Back to Encounter", main_index_path) %>
+<table class="listing" summary="Creature list">
+  <tr class="header">
+    <th>Name</th>
+    <th>AC</th>
+    <th>Details</th>
+    <th>Edit</th>
+    <th>Remove</th>
+  </tr>
+  <% @creatures.each do |creature| %>
+      <tr>
+        <td><%= creature.name %></td>
+
+        <td><%= creature.armor_class %></td>
+        <td><%= link_to("Show", creature_path(:id => creature.id))%></td>
+        <td><%= link_to("Edit", edit_creature_path(:id => creature.id))%></td>
+        <td><strong><%= link_to("X", delete_creature_path(:id => creature.id)) %></strong></td>
+
+      </tr>
+
+  <% end %>
+</table>
+<%= button_to("Add Creature", new_creature_path, method: :get) %>

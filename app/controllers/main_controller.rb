@@ -1,5 +1,5 @@
 class MainController < ApplicationController
-  before_filter :make_list, :only => [:index, :cycle_list]
+  before_action :make_list, :only => [:index, :cycle_list]
   def index
 
 
