@@ -2,7 +2,7 @@ class EncounterCreature < Creature
   has_many :statuses
 
   def copy(other)
-      self.attributes = other.attributes.except("type","id")
+      self.attributes = other.attributes.except("type","id","initiative")
   end
 
   def roll

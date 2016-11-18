@@ -1,7 +1,7 @@
 class CreaturesController < ApplicationController
 
   def index
-    @creatures = Creature.all.where(:type => nil).alphabetical
+    @creatures = Creature.all.base_only.alphabetical
   end
 
   def show
