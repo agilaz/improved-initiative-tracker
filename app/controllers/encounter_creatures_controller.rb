@@ -10,16 +10,18 @@ class EncounterCreaturesController < ApplicationController
   end
 
   def create
-    @creature = EncounterCreature.new(encounter_creature_params)
-    @creature.copy(Creature.find(params[:base_id]))
-    if params[:roll_init]
-      @creature.roll_initiative
+    params[:quantity].to_i.times do
+      #todo name each uniquely?
+      @creature = EncounterCreature.new(encounter_creature_params)
+      @creature.copy(Creature.find(params[:base_id]))
+      if params[:roll_init]
+        @creature.roll_initiative
+      end
+      unless @creature.save
+        render('new')
+      end
     end
-    if @creature.save
-      redirect_to(root_path)
-    else
-      render('new')
-    end
+    redirect_to(root_path)
   end
 
   def edit

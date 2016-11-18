@@ -26,6 +26,10 @@
           <th>Initiative</th>
           <td><%= f.text_field(:initiative) %></td>
         </tr>
+        <tr>
+          <th>Quantity</th>
+          <td><%= number_field_tag(:quantity) %></td>
+        </tr>
       </table>
 
       <%= f.submit("Add creature") %>
