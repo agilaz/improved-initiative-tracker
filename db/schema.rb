@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161117202119) do
+ActiveRecord::Schema.define(version: 20161119031026) do
 
   create_table "creatures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -38,15 +38,15 @@ ActiveRecord::Schema.define(version: 20161117202119) do
     t.string   "name"
     t.string   "description"
     t.integer  "duration"
-    t.boolean  "repeatSave"
-    t.string   "saveType"
-    t.integer  "saveDC"
-    t.integer  "strChange",             default: 0
-    t.integer  "dexChange",             default: 0
-    t.integer  "conChange",             default: 0
-    t.integer  "intChange",             default: 0
-    t.integer  "wisChange",             default: 0
-    t.integer  "chaChange",             default: 0
+    t.boolean  "repeat_save"
+    t.string   "save_type"
+    t.integer  "save_DC"
+    t.integer  "str_change",            default: 0
+    t.integer  "dex_change",            default: 0
+    t.integer  "con_change",            default: 0
+    t.integer  "int_change",            default: 0
+    t.integer  "wis_change",            default: 0
+    t.integer  "cha_change",            default: 0
     t.integer  "encounter_creature_id"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false

@@ -1,0 +1,56 @@
+<div>
+  <table>
+    <tr>
+      <th>Name</th>
+      <td><%= status.name %></td>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <td><%= status.description %></td>
+    </tr>
+    <tr>
+      <th>Duration</th>
+      <td><%= status.duration %></td>
+    </tr>
+    <tr>
+      <td><%= 'Repeat saves ' + (status.repeat_save ? ' ' : 'not ') + 'allowed' %></td>
+    </tr>
+    <tr>
+      <th>Save type</th>
+      <td><%= status.save_type %></td>
+    </tr>
+    <tr>
+      <th>Save DC</th>
+      <td><%= status.save_DC %></td>
+    </tr>
+    <tr>
+      <th>Stat Changes</th>
+      <table>
+        <tr>
+          <th>Str</th>
+          <td><%= status.str_change %></td>
+        </tr>
+        <tr>
+          <th>Dex</th>
+          <td><%= status.dex_change %></td>
+        </tr>
+        <tr>
+          <th>Con</th>
+          <td><%= status.con_change %></td>
+        </tr>
+        <tr>
+          <th>Int</th>
+          <td><%= status.int_change %></td>
+        </tr>
+        <tr>
+          <th>Wis</th>
+          <td><%= status.wis_change %></td>
+        </tr>
+        <tr>
+          <th>Cha</th>
+          <td><%= status.cha_change %></td>
+        </tr>
+      </table>
+    </tr>
+  </table>
+</div>

@@ -6,60 +6,63 @@
   </tr>
   <tr>
     <th>Description</th>
-    <td><%=f.text_area(:description, :size => '30x5') %></td>
+    <td><%= f.text_area(:description, :size => '30x5') %></td>
   </tr>
   <tr>
     <th>Duration</th>
-    <td><%=f.number_field(:duration) %></td>
+    <td><%= f.number_field(:duration) %></td>
   </tr>
   <tr>
     <th>Repeat saves allowed</th>
-    <td><%=f.check_box(:repeatSave) %></td>
+    <td><%= f.check_box(:repeat_save) %></td>
   </tr>
   <tr>
     <th>Save Type</th>
-    <td><%=f.radio_button(:saveType, "fort") %>Fort
-    <%=f.radio_button(:saveType, "ref") %>Ref
-    <%=f.radio_button(:saveType, "will") %>Will</td>
+    <td><%= f.radio_button(:save_type, "Fort") %>Fort
+      <%= f.radio_button(:save_type, "Ref") %>Ref
+      <%= f.radio_button(:save_type, "Will") %>Will
+    </td>
   </tr>
   <tr>
     <th>Save DC</th>
-    <td><%=f.number_field(:saveDC) %></td>
+    <td><%= f.number_field(:save_DC) %></td>
   </tr>
   <tr>
     <th>Strength Change</th>
-    <td><%=f.number_field(:strChange) %></td>
+    <td><%= f.number_field(:str_change) %></td>
   </tr>
   <tr>
     <th>Dexterity Change</th>
-    <td><%=f.number_field(:dexChange) %></td>
+    <td><%= f.number_field(:dex_change) %></td>
   </tr>
   <tr>
     <th>Constitution Change</th>
-    <td><%=f.number_field(:conChange) %></td>
+    <td><%= f.number_field(:con_change) %></td>
   </tr>
   <tr>
     <th>Intelligence Change</th>
-    <td><%=f.number_field(:intChange) %></td>
+    <td><%= f.number_field(:int_change) %></td>
   </tr>
   <tr>
     <th>Widsom Change</th>
-    <td><%=f.number_field(:wisChange) %></td>
+    <td><%= f.number_field(:wis_change) %></td>
   </tr>
   <tr>
     <th>Charisma Change</th>
-    <td><%=f.number_field(:chaChange) %></td>
+    <td><%= f.number_field(:cha_change) %></td>
   </tr>
   <tr>
     <table>
 
       <% EncounterCreature.all.each do |c| %>
-      <tr><td>
-        <%= check_box_tag('creature_ids[]', c.id) %>
-        <%= c.name %>
-        </td></tr>
-        <% end %>
-      
+          <tr>
+            <td>
+              <%= check_box_tag('creature_ids[]', c.id) %>
+              <%= c.name %>
+            </td>
+          </tr>
+      <% end %>
+
     </table>
   </tr>
 </table>

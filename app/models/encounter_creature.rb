@@ -2,7 +2,7 @@ class EncounterCreature < Creature
   has_many :statuses
 
   def copy(other)
-      self.attributes = other.attributes.except("type","id","initiative")
+    self.attributes = other.attributes.except("type", "id", "initiative")
   end
 
   def roll
@@ -30,15 +30,15 @@ class EncounterCreature < Creature
       end
 
       ability = 0
-      if status.saveType == "fort"
+      if status.save_type == "Fort"
         ability = self.fortitude
-      elsif status.saveType == "ref"
+      elsif status.save_type == "Ref"
         ability = self.reflex
-      elsif status.saveType == "will"
+      elsif status.save_type == "Will"
         ability = self.will
       end
 
-      if status.repeatSave? and roll_save(ability) >= status.saveDC
+      if status.repeat_save? and roll_save(ability) >= status.save_DC
         remove_status(status)
         next
       end
@@ -48,22 +48,24 @@ class EncounterCreature < Creature
 
   def add_status(status)
     statuses << status
-    self.strength += status.strChange
-    self.dexterity += status.dexChange
-    self.constitution += status.conChange
-    self.intelligence += status.intChange
-    self.wisdom += status.wisChange
-    self.charisma += status.chaChange
+    self.strength += status.str_change
+    self.dexterity += status.dex_change
+    self.constitution += status.con_change
+    self.intelligence += status.int_change
+    self.wisdom += status.wis_change
+    self.charisma += status.cha_change
+    self.save
   end
 
   def remove_status(status)
-    self.strength -= status.strChange
-    self.dexterity -= status.dexChange
-    self.constitution -= status.conChange
-    self.intelligence -= status.intChange
-    self.wisdom -= status.wisChange
-    self.charisma -= status.chaChange
+    self.strength -= status.str_change
+    self.dexterity -= status.dex_change
+    self.constitution -= status.con_change
+    self.intelligence -= status.int_change
+    self.wisdom -= status.wis_change
+    self.charisma -= status.cha_change
     self.statuses.destroy(status)
+    self.save
   end
 
 end

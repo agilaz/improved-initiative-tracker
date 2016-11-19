@@ -1,2 +1,4 @@
 <h1>Statuses#show</h1>
-<p>Find me in app/views/statuses/show.html.erb</p>
+<%= link_to("<< Back", :back) %>
+<%= render(:partial => 'status_info', :locals => {:status => @status}) %>
+

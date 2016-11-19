@@ -1,5 +1,6 @@
 class StatusesController < ApplicationController
   def show
+    @status = Status.find(params[:id])
   end
 
   def new
@@ -9,12 +10,12 @@ class StatusesController < ApplicationController
   def create
     params[:creature_ids].each do |id|
       @status = Status.new(status_params)
-      unless EncounterCreature.find(id).statuses << @status
-       render('new')
-      end  
+      unless EncounterCreature.find(id).add_status(@status)
+        render('new')
+      end
     end
     redirect_to(root_path)
-    
+
   end
 
   def edit
@@ -24,7 +25,7 @@ class StatusesController < ApplicationController
   def update
     @status = Status.find(params[:id])
   end
-  
+
   def delete
   end
 
@@ -32,6 +33,6 @@ class StatusesController < ApplicationController
   end
 
   def status_params
-    params.require(:status).permit(:name, :duration, :repeatSave, :description, :saveType, :saveDC, :strChange, :dexChange, :conChange, :intChange, :wisChange, :chaChange)
+    params.require(:status).permit(:name, :duration, :repeat_save, :description, :save_type, :save_DC, :str_change, :dex_change, :con_change, :int_change, :wis_change, :cha_change)
   end
 end
