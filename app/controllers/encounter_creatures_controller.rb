@@ -37,7 +37,13 @@ class EncounterCreaturesController < ApplicationController
   end
 
   def destroy
-    EncounterCreature.find(params[:id]).destroy
+    @creature = EncounterCreature.find(params[:id])
+    if @creature.is_first?
+      creatures = EncounterCreature.all.initiative_order.to_a
+      index = (creatures.index(@creature) + 1) % creatures.size
+      creatures[index].update_attributes({:is_first => true})
+    end
+    @creature.destroy
     redirect_to(root_path)
   end
 

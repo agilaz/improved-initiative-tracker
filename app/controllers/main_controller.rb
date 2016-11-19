@@ -14,7 +14,7 @@ class MainController < ApplicationController
 
   private
   def make_list
-    @creatures = EncounterCreature.all.order("initiative DESC").to_a
+    @creatures = EncounterCreature.all.initiative_order.to_a
     @creatures.each do |c|
       if c.is_first
         until @creatures.first == c

@@ -1,6 +1,7 @@
 class EncounterCreature < Creature
   has_many :statuses
 
+  scope :initiative_order, lambda {order("initiative DESC, dexterity DESC")}
   def copy(other)
     self.attributes = other.attributes.except("type", "id", "initiative")
   end
