@@ -24,8 +24,8 @@ class EncounterCreature < Creature
   def next_turn
     statuses.each do |status|
       status.duration -= 1
-      if status.duration < 0
-        removeStatus(status)
+      if status.duration <= 0
+        remove_status(status)
         next
       end
 
@@ -38,9 +38,11 @@ class EncounterCreature < Creature
         ability = self.will
       end
 
-      if rollSave(ability) >= status.saveDC
-        removeStatus(status)
+      if status.repeatSave? and roll_save(ability) >= status.saveDC
+        remove_status(status)
+        next
       end
+      status.save
     end
   end
 

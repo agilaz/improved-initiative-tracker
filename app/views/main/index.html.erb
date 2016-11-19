@@ -19,7 +19,7 @@
             <tr>
               <% creature.statuses.each do |status| %>
                   <td>
-                    <%= status.name %>: <%= status.duration %>
+                    <%= link_to(status.name, status_path(:id => status.id)) %> (<%= status.duration %>)
                   </td>
               <% end %>
             </tr>
@@ -35,3 +35,4 @@
 <%= button_to("Next turn", :action => "cycle_list") %>
 <%= button_to("View creature list", creatures_path, method: :get) %>
 <%= button_to("Add creature", new_encounter_creature_path, method: :get) %>
+<%= button_to("Add status", new_status_path, method: :get) %>

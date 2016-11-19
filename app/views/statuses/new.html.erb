@@ -1,0 +1,9 @@
+<h1>Statuses#new</h1>
+<%= link_to("<< Back to encounter", root_path) %>
+<div class="status form">
+  <%= form_for(@status) do |f| %>
+      <%= render(:partial => 'form', :locals => {:f => f}) %>
+
+      <%= f.submit("Add new status") %>
+  <% end %>
+</div>
