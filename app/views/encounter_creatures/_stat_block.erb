@@ -1,0 +1,77 @@
+<div class="stat block">
+  <table>
+    <tr>
+      <th>Name</th>
+      <td><%= creature.name %></td>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <td><%= creature.description %></td>
+    </tr>
+    <tr>
+      <th>Initiative</th>
+      <td><%= creature.initiative %></td>
+    </tr>
+    <tr>
+      <th>Armor Class</th>
+      <td><%= creature.armor_class %></td>
+    </tr>
+    <tr>
+      <th>CMD</th>
+      <td><%= creature.combat_maneuver_defense %></td>
+    </tr>
+    <tr>
+      <th>HP</th>
+      <td><%= creature.max_hit_points %></td>
+    </tr>
+    <tr>
+      <th>Strength</th>
+      <td><%= creature.strength %></td>
+    </tr>
+    <tr>
+      <th>Dexterity</th>
+      <td><%= creature.dexterity %></td>
+    </tr>
+    <tr>
+      <th>Constitution</th>
+      <td><%= creature.constitution %></td>
+    </tr>
+    <tr>
+      <th>Intelligence</th>
+      <td><%= creature.intelligence %></td>
+    </tr>
+    <tr>
+      <th>Wisdom</th>
+      <td><%= creature.wisdom %></td>
+    </tr>
+    <tr>
+      <th>Charisma</th>
+      <td><%= creature.charisma %></td>
+    </tr>
+    <tr>
+      <th>Fortitude</th>
+      <td><%= creature.fortitude %></td>
+    </tr>
+    <tr>
+      <th>Reflex</th>
+      <td><%= creature.reflex %></td>
+    </tr>
+    <tr>
+      <th>Will</th>
+      <td><%= creature.will %></td>
+    </tr>
+    <tr>
+      <td>
+        <table class="statuses">
+          <tr>
+            <% creature.statuses.each do |status| %>
+             <td>
+               <%= status.name %>: <%= status.duration %>
+             </td>
+            <% end %>
+          </tr>
+       </table>
+      </td>
+    </tr>
+  </table>
+</div>

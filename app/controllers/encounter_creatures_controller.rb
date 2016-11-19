@@ -37,7 +37,8 @@ class EncounterCreaturesController < ApplicationController
   end
 
   def destroy
-    @creature = EncounterCreature.find(params[:id])
+    EncounterCreature.find(params[:id]).destroy
+    redirect_to(root_path)
   end
 
   def encounter_creature_params

@@ -26,8 +26,8 @@
           </table>
 
         </td>
-        <td>View</td>
-        <td><strong>X</strong></td>
+        <td> <%= link_to("View", encounter_creature_path(:id => creature.id)) %> </td>
+        <td><strong><%= link_to("X",delete_encounter_creature_path(:id => creature.id)) %></strong></td>
 
       </tr>
   <% end %>

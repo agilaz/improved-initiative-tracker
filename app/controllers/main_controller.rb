@@ -6,9 +6,9 @@ class MainController < ApplicationController
   end
   def cycle_list
     @creatures.first.update_attributes({:is_first => false})
+    @creatures.first.next_turn
     @creatures = @creatures.rotate
     @creatures.first.update_attributes({:is_first => true})
-
     redirect_to :back
   end
 

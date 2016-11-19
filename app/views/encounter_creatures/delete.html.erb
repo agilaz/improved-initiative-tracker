@@ -1,2 +1,13 @@
 <h1>EncounterCreatures#delete</h1>
-<p>Find me in app/views/encounter_creatures/delete.html.erb</p>
+<%= link_to("<< Back to encounter", root_path) %>
+<%= form_for(@creature, :url => encounter_creature_path(@creature), :method => 'delete') do |f| %>
+
+    <p>Do you want to remove this creature?</p>
+
+    <%= render(:partial => 'stat_block', :locals => {:creature => @creature}) %>
+
+    <div class="form-buttons">
+      <%= f.submit("Remove Creature") %>
+    </div>
+
+<% end %>
