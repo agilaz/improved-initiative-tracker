@@ -1,58 +1,57 @@
 <table>
-  <tr>
     <th>Name</th>
     <td><%= f.text_field(:name) %></td>
   </tr>
   <tr>
     <th>Description</th>
-    <td><%= f.text_area(:description, :size => '30x10') %></td>
+    <td><%= f.text_area(:description, :size => '20x5') %></td>
   </tr>
   <tr>
-    <th>Armor Class</th>
-    <td><%= f.text_field(:armor_class) %></td>
+  <td>
+    <strong>AC</strong>
+    <%= f.number_field(:armor_class, :in => 0..50) %>
+  
+    <strong>CMD</strong>
+    <%= f.number_field(:combat_maneuver_defense, :in => 0..50) %>
+  
+    <strong>HP</strong>
+    <%= f.number_field(:max_hit_points, :in => 0..1000) %>
+  </td>
   </tr>
   <tr>
-    <th>CMD</th>
-    <td><%= f.text_field(:combat_maneuver_defense) %></td>
+    <th>Str</th>
+    <td><%= f.number_field(:strength, :in => 0..50) %></td>
   </tr>
   <tr>
-    <th>HP</th>
-    <td><%= f.text_field(:max_hit_points) %></td>
+    <th>Dex</th>
+    <td><%= f.number_field(:dexterity, :in => 0..50) %></td>
   </tr>
   <tr>
-    <th>Strength</th>
-    <td><%= f.text_field(:strength) %></td>
+    <th>Con</th>
+    <td><%= f.number_field(:constitution, :in => 0..50) %></td>
   </tr>
   <tr>
-    <th>Dexterity</th>
-    <td><%= f.text_field(:dexterity) %></td>
+    <th>Int</th>
+    <td><%= f.number_field(:intelligence, :in => 0..50) %></td>
   </tr>
   <tr>
-    <th>Constitution</th>
-    <td><%= f.text_field(:constitution) %></td>
+    <th>Wis</th>
+    <td><%= f.number_field(:wisdom, :in => 0..50) %></td>
   </tr>
   <tr>
-    <th>Intelligence</th>
-    <td><%= f.text_field(:intelligence) %></td>
+    <th>Cha</th>
+    <td><%= f.number_field(:charisma, :in => 0..50) %></td>
   </tr>
   <tr>
-    <th>Wisdom</th>
-    <td><%= f.text_field(:wisdom) %></td>
+    <th>Fort</th>
+    <td><%= f.number_field(:fortitude, :in => -10..50) %></td>
   </tr>
   <tr>
-    <th>Charisma</th>
-    <td><%= f.text_field(:charisma) %></td>
-  </tr>
-  <tr>
-    <th>Fortitude</th>
-    <td><%= f.text_field(:fortitude) %></td>
-  </tr>
-  <tr>
-    <th>Reflex</th>
-    <td><%= f.text_field(:reflex) %></td>
+    <th>Ref</th>
+    <td><%= f.number_field(:reflex, :in => -10..50) %></td>
   </tr>
   <tr>
     <th>Will</th>
-    <td><%= f.text_field(:will) %></td>
+    <td><%= f.number_field(:will, :in => -10..50) %></td>
   </tr>
 </table>

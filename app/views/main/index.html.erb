@@ -19,7 +19,7 @@
             <tr>
               <% creature.statuses.each do |status| %>
                   <td>
-                    <%= link_to(status.name, status_path(:id => status.id)) %> (<%= status.duration %>)
+                    <%= link_to(status.name, status_path(:id => status.id)) %>: <%= status.duration %> (<strong> <%= link_to("X", delete_status_path(:id => status.id)) %></strong>)
                   </td>
               <% end %>
             </tr>

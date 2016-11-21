@@ -1,2 +1,13 @@
 <h1>Statuses#delete</h1>
-<p>Find me in app/views/statuses/delete.html.erb</p>
+<%= link_to("<< Back to encounter", root_path) %>
+<%= form_for(@status, :url => status_path(@status), :method => 'delete') do |f| %>
+
+    <p>Do you want to remove <%= @status.name %> from <%= EncounterCreature.find(@status.encounter_creature_id).name %>?</p>
+
+    <%= render(:partial => 'status_info', :locals => {:status => @status}) %>
+
+    <div class="form-buttons">
+      <%= f.submit("Remove Status") %>
+    </div>
+
+<% end %>

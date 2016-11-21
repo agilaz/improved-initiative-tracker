@@ -27,9 +27,13 @@ class StatusesController < ApplicationController
   end
 
   def delete
+    @status = Status.find(params[:id])
   end
 
   def destroy
+    @status = Status.find(params[:id])
+    EncounterCreature.find(@status.encounter_creature_id).remove_status(@status)
+    redirect_to(root_path)
   end
 
   def status_params
