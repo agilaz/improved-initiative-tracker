@@ -11,7 +11,7 @@
   <% @creatures.each do |creature| %>
       <tr>
         <td><%= creature.initiative %></td>
-        <td><%= creature.name %></td>
+        <td><%= creature.name %> <%= creature.number %></td>
 
         <td><%= creature.armor_class %></td>
         <td>

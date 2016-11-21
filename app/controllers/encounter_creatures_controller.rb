@@ -10,10 +10,13 @@ class EncounterCreaturesController < ApplicationController
   end
 
   def create
+    number = high_num + 1
     params[:quantity].to_i.times do
       #todo name each uniquely?
       @creature = EncounterCreature.new(encounter_creature_params)
       @creature.copy(Creature.find(params[:base_id]))
+      @creature.number = number
+      number += 1
       if params[:roll_init]
         @creature.roll_initiative
       end
@@ -49,5 +52,15 @@ class EncounterCreaturesController < ApplicationController
 
   def encounter_creature_params
     params.require(:encounter_creature).permit(:initiative)
+  end
+
+  def high_num
+    name = Creature.find(params[:base_id]).name
+    creature = EncounterCreature.where(:name => name).order("number DESC").first
+    if creature != nil
+      return creature.number
+    else
+      return 0
+    end
   end
 end
