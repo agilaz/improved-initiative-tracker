@@ -1,6 +1,11 @@
 <h1>Creatures#index</h1>
-<%= link_to("<< Back to Encounter", root_path) %>
-<table class="listing" summary="Creature list">
+
+<div class="col-md-6 col-md-offset-2">
+  <%= render(:partial => 'main/main_table') %>
+</div>
+<div class="col-md-3">
+  <%= link_to("<< Back to Encounter", root_path) %>
+  <table class="table table-bordered" summary="Creature list">
   <tr class="header">
     <th>Name</th>
     <th>AC</th>
@@ -21,4 +26,5 @@
 
   <% end %>
 </table>
-<%= button_to("Add Creature", new_creature_path, method: :get) %>
+<%= button_to("Add Creature to Database", new_creature_path, method: :get, class: 'btn col-md-8 col-md-offset-2') %>
+</div>

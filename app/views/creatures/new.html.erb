@@ -1,9 +1,14 @@
 <h1>Creatures#new</h1>
-<%= link_to("<< Back to creature list", creatures_path) %>
-<div class="creatures form">
-  <%= form_for(@creature) do |f| %>
-      <%= render(:partial => 'form', :locals => {:f => f}) %>
+<div class="col-md-6 col-md-offset-2">
+  <%= render(:partial => 'main/main_table') %>
+</div>
+<div class="col-md-3">
+  <div class="col-md-8 col-md-offset-2">
+    <%= link_to("<< Back to creature list", creatures_path) %>
 
-      <%= f.submit("Create new creature") %>
-  <% end %>
+    <%= form_for(@creature) do |f| %>
+        <%= render(:partial => 'form', :locals => {:f => f}) %>
+        <br><%= f.submit("Create new creature", :class => 'btn btn-large col-md-8 col-md-offset-2') %>
+    <% end %>
+  </div>
 </div>

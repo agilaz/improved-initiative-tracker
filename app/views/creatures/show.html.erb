@@ -1,3 +1,12 @@
 <h1>Creatures#show</h1>
-<%= link_to("<< Back", :back) %>
-<%= render(:partial => 'stat_block', :locals => {:creature => @creature}) %>
+<div class="col-md-6 col-md-offset-2">
+  <%= render(:partial => 'main/main_table') %>
+</div>
+<div class="col-md-3">
+  <div class="col-md-8 col-md-offset-2">
+    <%= link_to("<< Back", :back) %>
+
+      <%= render(:partial => 'stat_block', :locals => {:creature => @creature}) %>
+
+  </div>
+</div>
