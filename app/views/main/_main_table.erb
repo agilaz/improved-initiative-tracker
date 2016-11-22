@@ -1,0 +1,39 @@
+<% creatures = make_list %>
+<table class="table table-bordered table-striped" summary="Encounter">
+  <tr>
+    <th style="width:5%">Init</th>
+    <th style="width:25%">Name</th>
+    <th style="width:5%">AC</th>
+    <th style="width:45%">Statuses</th>
+    <th style="width:10%">Details</th>
+    <th style="width:10%">Remove</th>
+  </tr>
+  <% creatures.each do |creature| %>
+      <tr>
+        <td><%= creature.initiative %></td>
+        <td><%= creature.name %> <%= creature.number %></td>
+
+        <td><%= creature.armor_class %></td>
+        <td>
+          <table>
+            <tr>
+              <% creature.statuses.each do |status| %>
+                  <td class="statuses">
+                    <%= link_to(status.name, status_path(:id => status.id)) %>: <%= status.duration %>
+                    (<strong><%= link_to("X", delete_status_path(:id => status.id)) %></strong>)
+                  </td>
+              <% end %>
+            </tr>
+          </table>
+
+        </td>
+        <td> <%= link_to("View", encounter_creature_path(:id => creature.id)) %> </td>
+        <td><strong><%= link_to("X", delete_encounter_creature_path(:id => creature.id)) %></strong></td>
+
+      </tr>
+  <% end %>
+</table>
+<div class="col-md-3"><%= button_to("Next turn", {:action => "cycle_list"}, :class => 'btn btn-block') %></div>
+<div class="col-md-3"><%= button_to("View creature list", creatures_path, method: :get, :class => 'btn btn-block') %></div>
+<div class="col-md-3"><%= button_to("Add creature to encounter", new_encounter_creature_path, method: :get, :class => 'btn btn-block') %></div>
+<div class="col-md-3"><%= button_to("Add status", new_status_path, method: :get, :class => 'btn btn-block') %></div>

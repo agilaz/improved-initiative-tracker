@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   get 'main/index'
   post 'main/cycle_list'
+  post 'creatures/cycle_list'
+  post 'encounter_creatures/cycle_list'
+  post 'statuses/cycle_list'
 
   resources :creatures do
     member do

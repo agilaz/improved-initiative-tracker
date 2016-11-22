@@ -1,0 +1,11 @@
+<!--Adapted from Skoglund's Ruby on Rails course: https://www.lynda.com/Ruby-Rails-tutorials/Ruby-Rails-5-Essential-Training/500551-2.html-->
+<% if object && object.errors.size > 0 %>
+    <div>
+      <strong>You have <%= pluralize(object.errors.size, "error") %> in this form:</strong>
+      <ul>
+        <% object.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>

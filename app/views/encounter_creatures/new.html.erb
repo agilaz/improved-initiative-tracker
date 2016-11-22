@@ -1,37 +1,14 @@
 <h1>EncounterCreatures#new</h1>
-<%= link_to("<< Back to Encounter", root_path) %>
-<div class="creatures form">
-  <%= form_for(@creature) do |f| %>
-      <table>
-        <tr>
-          <td>
-            Select base creature (<%= link_to("or add new", new_creature_path) %>)
-            <table>
-              <% @all_creatures.each do |c| %>
-                  <tr>
-                    <td><%= radio_button_tag(:base_id, c.id) %>
-                      <%= c.name %>
-                      (<%= link_to('view', creature_path(:id => c.id)) %>)
-                    </td>
-                  </tr>
-              <% end %>
-            </table>
-          </td>
-        </tr>
-        <tr>
-          <th>Automatically Roll Initiative</th>
-          <td><%= check_box_tag(:roll_init) %></td>
-        </tr>
-        <tr>
-          <th>Initiative</th>
-          <td><%= f.text_field(:initiative) %></td>
-        </tr>
-        <tr>
-          <th>Quantity</th>
-          <td><%= number_field_tag(:quantity) %></td>
-        </tr>
-      </table>
 
-      <%= f.submit("Add creature") %>
-  <% end %>
+<div class="col-md-6 col-md-offset-2">
+  <%= render(:partial => 'main/main_table') %>
+</div>
+<div class="col-md-3">
+  <div class="col-md-8 col-md-offset-2">
+    <%= link_to("<< Back to Encounter", root_path) %>
+    <%= form_for(@creature) do |f| %>
+        <%= render(:partial => 'form', :locals => {:f => f}) %>
+        <br><%= f.submit("Add creature", :class => 'btn btn-large col-md-8 col-md-offset-2') %>
+    <% end %>
+  </div>
 </div>

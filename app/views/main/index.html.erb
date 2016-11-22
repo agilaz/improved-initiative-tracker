@@ -1,38 +1,4 @@
 <h1>Main#index</h1>
-<table class="listing" summary="Encounter">
-  <tr class="header">
-    <th>Init</th>
-    <th>Name</th>
-    <th>AC</th>
-    <th>Statuses</th>
-    <th>Details</th>
-    <th>Remove</th>
-  </tr>
-  <% @creatures.each do |creature| %>
-      <tr>
-        <td><%= creature.initiative %></td>
-        <td><%= creature.name %> <%= creature.number %></td>
-
-        <td><%= creature.armor_class %></td>
-        <td>
-          <table class="statuses">
-            <tr>
-              <% creature.statuses.each do |status| %>
-                  <td>
-                    <%= link_to(status.name, status_path(:id => status.id)) %>: <%= status.duration %> (<strong> <%= link_to("X", delete_status_path(:id => status.id)) %></strong>)
-                  </td>
-              <% end %>
-            </tr>
-          </table>
-
-        </td>
-        <td> <%= link_to("View", encounter_creature_path(:id => creature.id)) %> </td>
-        <td><strong><%= link_to("X",delete_encounter_creature_path(:id => creature.id)) %></strong></td>
-
-      </tr>
-  <% end %>
-</table>
-<%= button_to("Next turn", :action => "cycle_list") %>
-<%= button_to("View creature list", creatures_path, method: :get) %>
-<%= button_to("Add creature", new_encounter_creature_path, method: :get) %>
-<%= button_to("Add status", new_status_path, method: :get) %>
+<div class="col-md-6 col-md-offset-3">
+  <%= render(:partial => 'main_table') %>
+</div>

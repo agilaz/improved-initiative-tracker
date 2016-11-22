@@ -1,0 +1,31 @@
+<div style="border:1px solid black">
+  <table style="width:100%;">
+    <tr>
+      <td>
+        <strong>Select base creature (<%= link_to("or add new", new_creature_path) %>)</strong>
+        <table class="table table-bordered table-striped">
+          <% @all_creatures.each do |c| %>
+              <tr>
+                <td><%= radio_button_tag(:base_id, c.id, :checked => (c == @all_creatures.first)) %>
+                  <%= c.name %>
+                  (<%= link_to('view', creature_path(:id => c.id)) %>)
+                </td>
+              </tr>
+          <% end %>
+        </table>
+      </td>
+    </tr>
+    <tr style="height:20px">
+      <td>Automatically Roll Initiative
+        <%= check_box_tag(:roll_init) %></td>
+    </tr>
+    <tr style="height:40px">
+      <td><strong>Initiative</strong>
+        <%= f.number_field(:initiative, :in => -10..50) %></td>
+    </tr>
+    <tr style="height:40px">
+      <td><strong>Quantity</strong>
+        <%= number_field_tag(:quantity, 0, :in => 0..50) %></td>
+    </tr>
+  </table>
+</div>

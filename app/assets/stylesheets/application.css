@@ -13,3 +13,50 @@
  *= require_tree .
  *= require_self
  */
+@import "_bootstrap.scss";
+body {
+    background-color: #e5e5f5;
+}
+
+.table-bordered td, .table-bordered th {
+    border: 1px solid black !important;
+}
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+    background-color: #d3d3f3; // Choose your own color here
+}
+.section {
+    border-bottom: 1px solid black;
+    /*border-top: 1px solid black;*/
+    width: 100%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+table td.statuses {
+    padding-right: 5px;
+    padding-left: 5px;
+}
+table td.statuses {
+    border:0 !important;
+}
+table td + td.statuses {
+    border-top: 0 !important;
+    border-bottom: 0 !important;
+    border-right: 0 !important;
+    border-left: 1px solid grey !important;
+}
+
+input, textarea {
+    background-color: #e5e5f0;
+}
+
+input[type=submit] {
+    background-color: #f3f3ff;
+    border: 1px solid darkgray;
+}
+
+.btn-danger {
+    background-color: #D9534F !important;
+}
