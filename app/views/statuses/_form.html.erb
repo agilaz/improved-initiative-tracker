@@ -1,68 +1,89 @@
-<% #todo fix naming conventions %>
-<table>
-  <tr>
-    <th>Name</th>
-    <td><%= f.text_field(:name) %></td>
-  </tr>
-  <tr>
-    <th>Description</th>
-    <td><%= f.text_area(:description, :size => '30x5') %></td>
-  </tr>
-  <tr>
-    <th>Duration</th>
-    <td><%= f.number_field(:duration) %></td>
-  </tr>
-  <tr>
-    <th>Repeat saves allowed</th>
-    <td><%= f.check_box(:repeat_save) %></td>
-  </tr>
-  <tr>
-    <th>Save Type</th>
-    <td><%= f.radio_button(:save_type, "Fort") %>Fort
-      <%= f.radio_button(:save_type, "Ref") %>Ref
-      <%= f.radio_button(:save_type, "Will") %>Will
-    </td>
-  </tr>
-  <tr>
-    <th>Save DC</th>
-    <td><%= f.number_field(:save_DC) %></td>
-  </tr>
-  <tr>
-    <th>Strength Change</th>
-    <td><%= f.number_field(:str_change) %></td>
-  </tr>
-  <tr>
-    <th>Dexterity Change</th>
-    <td><%= f.number_field(:dex_change) %></td>
-  </tr>
-  <tr>
-    <th>Constitution Change</th>
-    <td><%= f.number_field(:con_change) %></td>
-  </tr>
-  <tr>
-    <th>Intelligence Change</th>
-    <td><%= f.number_field(:int_change) %></td>
-  </tr>
-  <tr>
-    <th>Widsom Change</th>
-    <td><%= f.number_field(:wis_change) %></td>
-  </tr>
-  <tr>
-    <th>Charisma Change</th>
-    <td><%= f.number_field(:cha_change) %></td>
-  </tr>
-  <tr>
-    <table>
-
-      <% EncounterCreature.all.each do |c| %>
+<%= show_errors(f.object) %>
+<div style="border:1px solid black">
+  <table style="width:100%; text-align: center">
+    <tr>
+      <td>
+        <table style="width:100%; border-bottom: 1px solid grey">
           <tr>
-            <td>
-              <%= check_box_tag('creature_ids[]', c.id) %>
-              <%= c.name %> <%= c.number %>
-            </td>
-          </tr>
-      <% end %>
+            <td style="padding:5px;"><strong>Name</strong>
+              <%= f.text_field(:name) %></td>
 
-    </table>
-  </tr>
-</table>
+        </table>
+      </td>
+    </tr>
+    <tr class="section" style="height: 100px">
+      <td><strong>Description</strong><br>
+        <%= f.text_area(:description, :size => '30x5') %></td>
+    </tr>
+
+    <tr>
+      <td>
+        <table>
+          <td class="col-md-4" style="padding:5px">
+            <%= f.check_box(:repeat_save) %><strong> Repeat save</strong></td>
+          <td class="col-md-4"><strong>DC</strong>
+            <%= f.number_field(:save_DC, :in => 0..50) %></td>
+          <td><strong>Duration</strong>
+            <%= f.number_field(:duration, :in => 1..50) %></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <table class="section" style="width: 100%">
+      <td style="padding:5px"><strong>Save Type</strong></td>
+        <td><%= f.radio_button(:save_type, "Fort") %>Fortitude</td>
+        <td><%= f.radio_button(:save_type, "Ref") %>Reflex</td>
+        <td><%= f.radio_button(:save_type, "Will") %>Will</td>
+      </td>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <center><strong>Stat changes</strong></center>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <table class="section">
+        <tr>
+      <td style="padding:5px"><strong>STR</strong>
+        <%= f.number_field(:str_change, :in => -50..50) %></td>
+
+      <td><strong>DEX</strong>
+        <%= f.number_field(:dex_change, :in => -50..50) %></td>
+
+      <td><strong>CON</strong>
+        <%= f.number_field(:con_change, :in => -50..50) %></td>
+    </tr>
+    <tr>
+      <td style="padding:5px"><strong>INT</strong>
+        <%= f.number_field(:int_change, :in => -50..50) %></td>
+
+      <td><strong>WIS</strong>
+        <%= f.number_field(:wis_change, :in => -50..50) %></td>
+
+      <td><strong>CHA</strong>
+        <%= f.number_field(:cha_change, :in => -50..50) %></td>
+    </tr>
+      </table>
+      </td>
+    </tr>
+    <tr>
+      <table class="table table-striped">
+
+        <% EncounterCreature.alphabetical.each do |c| %>
+            <tr>
+              <td>
+                <%= check_box_tag('creature_ids[]', c.id) %>
+                <%= c.name %> <%= c.number %>
+              </td>
+            </tr>
+        <% end %>
+
+      </table>
+    </tr>
+  </table>
+</div>

@@ -1,9 +1,14 @@
 <h1>Statuses#new</h1>
-<%= link_to("<< Back to encounter", root_path) %>
-<div class="status form">
-  <%= form_for(@status) do |f| %>
-      <%= render(:partial => 'form', :locals => {:f => f}) %>
-
-      <%= f.submit("Add new status") %>
-  <% end %>
+<div class="col-md-6 col-md-offset-2">
+  <%= render(:partial => 'main/main_table') %>
+</div>
+<div class="col-md-3">
+  <div class="col-md-12">
+    <%= link_to("<< Back to encounter", root_path) %>
+    <%= form_for(@status) do |f| %>
+        <%= render(:partial => 'form', :locals => {:f => f}) %>
+        <br>
+        <%= f.submit("Add new status", :class => 'btn btn-large col-md-8 col-md-offset-2') %>
+    <% end %>
+  </div>
 </div>

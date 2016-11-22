@@ -1,4 +1,13 @@
 <h1>Statuses#show</h1>
-<%= link_to("<< Back", :back) %>
-<%= render(:partial => 'status_info', :locals => {:status => @status}) %>
+<div class="col-md-6 col-md-offset-2">
+  <%= render(:partial => 'main/main_table') %>
+</div>
+<div class="col-md-3">
+  <div class="col-md-8 col-md-offset-2">
+    <%= link_to("<< Back", :back) %>
 
+
+    <%= render(:partial => 'status_info', :locals => {:status => @status}) %>
+      </div>
+  </div>
+</div>

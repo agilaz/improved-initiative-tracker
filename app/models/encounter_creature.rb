@@ -34,11 +34,14 @@ class EncounterCreature < Creature
         ability = self.will
       end
 
-      if status.repeat_save? and roll_save(ability) >= status.save_DC
+      status.duration -= 1
+      if status.duration <= 0
         remove_status(status)
-        next
+      elsif status.repeat_save? and roll_save(ability) >= status.save_DC
+        remove_status(status)
+      else
+        status.save
       end
-      status.save
     end
   end
 

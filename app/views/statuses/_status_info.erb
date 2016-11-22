@@ -1,54 +1,57 @@
-<div>
-  <table>
-    <tr>
-      <th>Name</th>
-      <td><%= status.name %></td>
+<div style="border:1px solid black">
+  <table style="width:100%; text-align:center">
+    <tr style="height:30px; border-bottom: 1px solid grey">
+      <td><strong>Name: </strong>
+        <%= status.name %>
+      </td>
+    </tr>
+    <tr style="height:100px; border-bottom: 2px solid black">
+      <td><strong>Description</strong><br>
+        <%= status.description %>
+      </td>
+    </tr>
+    <tr style="height: 30px">
+      <td>
+        <center><%= 'Repeat saves ' + (status.repeat_save ? ' ' : 'not ') + 'allowed' %></center>
+      </td>
     </tr>
     <tr>
-      <th>Description</th>
-      <td><%= status.description %></td>
-    </tr>
-    <tr>
-      <th>Duration</th>
-      <td><%= status.duration %></td>
-    </tr>
-    <tr>
-      <td><%= 'Repeat saves ' + (status.repeat_save ? ' ' : 'not ') + 'allowed' %></td>
-    </tr>
-    <tr>
-      <th>Save type</th>
-      <td><%= status.save_type %></td>
-    </tr>
-    <tr>
-      <th>Save DC</th>
-      <td><%= status.save_DC %></td>
-    </tr>
-    <tr>
-      <th>Stat Changes</th>
-      <table>
+      <table class="section" style="height:30px">
         <tr>
-          <th>Str</th>
-          <td><%= status.str_change %></td>
+          <td><strong>Duration </strong>
+            <%= status.duration %></td>
+          <td><strong>Save: </strong>
+            DC <%= status.save_DC %>
+            <%= status.save_type %></td>
+        </tr>
+      </table>
+    </tr>
+    <tr>
+      <td>
+        <center><strong>Stat changes</strong></center>
+      </td>
+    </tr>
+    <tr>
+      <table class="section" style="height:80px">
+        <tr>
+          <td><strong>Str</strong>
+            <%= status.str_change %></td>
+
+          <td><strong>Dex</strong>
+            <%= status.dex_change %></td>
+
+          <td><strong>Con</strong>
+            <%= status.con_change %></td>
         </tr>
         <tr>
-          <th>Dex</th>
-          <td><%= status.dex_change %></td>
-        </tr>
-        <tr>
-          <th>Con</th>
-          <td><%= status.con_change %></td>
-        </tr>
-        <tr>
-          <th>Int</th>
-          <td><%= status.int_change %></td>
-        </tr>
-        <tr>
-          <th>Wis</th>
-          <td><%= status.wis_change %></td>
-        </tr>
-        <tr>
-          <th>Cha</th>
-          <td><%= status.cha_change %></td>
+          <td><strong>Int</strong>
+            <%= status.int_change %></td>
+
+          <td><strong>Wis</strong>
+            <%= status.wis_change %></td>
+
+          <td><strong>Cha</strong>
+            <%= status.cha_change %></td>
         </tr>
       </table>
     </tr>

@@ -8,11 +8,14 @@ class StatusesController < ApplicationController
   end
 
   def create
+    if params[:creature_ids] != nil
     params[:creature_ids].each do |id|
       @status = Status.new(status_params)
       unless EncounterCreature.find(id).add_status(@status)
         render('new')
+        return
       end
+    end
     end
     redirect_to(root_path)
 

@@ -1,13 +1,19 @@
 <h1>Statuses#delete</h1>
-<%= link_to("<< Back to encounter", root_path) %>
-<%= form_for(@status, :url => status_path(@status), :method => 'delete') do |f| %>
+<div class="col-md-6 col-md-offset-2">
+  <%= render(:partial => 'main/main_table') %>
+</div>
+<div class="col-md-3">
+  <div class="col-md-8 col-md-offset-2">
+    <%= link_to("<< Back to encounter", root_path) %>
+    <%= form_for(@status, :url => status_path(@status), :method => 'delete') do |f| %>
 
-    <p>Do you want to remove <%= @status.name %> from <%= EncounterCreature.find(@status.encounter_creature_id).name %>?</p>
+        <p><strong>Are you sure you want to remove <%= @status.name %>
+          from <%= EncounterCreature.find(@status.encounter_creature_id).name %> <%= EncounterCreature.find(@status.encounter_creature_id).number%>?</strong></p>
 
-    <%= render(:partial => 'status_info', :locals => {:status => @status}) %>
+        <%= render(:partial => 'status_info', :locals => {:status => @status}) %>
+        <br>
+        <%= f.submit("Remove Status", class: 'btn btn-danger col-md-8 col-md-offset-2') %>
 
-    <div class="form-buttons">
-      <%= f.submit("Remove Status") %>
-    </div>
-
-<% end %>
+    <% end %>
+  </div>
+</div>
