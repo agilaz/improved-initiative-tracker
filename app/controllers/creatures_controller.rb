@@ -1,3 +1,12 @@
+# Name: Edward Kennedy
+# Course: CSC 415
+# Semester: Fall 2016
+# Instructor: Dr. Pulimood
+# Project name: Improved Initiative Tracker
+# Description: Pathfinder initiative tracker and status manager
+# Filename:creature_controller.rb
+# Description:handles the database creature views
+# Last modified on: 11/22/16
 class CreaturesController < ApplicationController
 
   def index

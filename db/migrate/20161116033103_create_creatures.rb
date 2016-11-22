@@ -1,3 +1,12 @@
+# Name: Edward Kennedy
+# Course: CSC 415
+# Semester: Fall 2016
+# Instructor: Dr. Pulimood
+# Project name: Improved Initiative Tracker
+# Description: Pathfinder initiative tracker and status manager
+# Filename:20161116033103_create_creatures.rb
+# Description:adds the initial structure for a creature in the database
+# Last modified on: 11/22/16
 class CreateCreatures  < ActiveRecord::Migration[5.0]
   def up
     create_table :creatures do |t|

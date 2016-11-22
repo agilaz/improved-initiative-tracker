@@ -1,3 +1,12 @@
+# Name: Edward Kennedy
+# Course: CSC 415
+# Semester: Fall 2016
+# Instructor: Dr. Pulimood
+# Project name: Improved Initiative Tracker
+# Description: Pathfinder initiative tracker and status manager
+# Filename:20161116041340_create_statuses.rb
+# Description:adds the initial structure for a status in the database
+# Last modified on: 11/22/16
 class CreateStatuses < ActiveRecord::Migration[5.0]
   def up
     create_table :statuses do |t|
