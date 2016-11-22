@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161120051336) do
+ActiveRecord::Schema.define(version: 20161121215458) do
 
   create_table "creatures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -38,10 +38,10 @@ ActiveRecord::Schema.define(version: 20161120051336) do
   create_table "statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "description"
-    t.integer  "duration"
+    t.integer  "duration",              default: 1
     t.boolean  "repeat_save"
-    t.string   "save_type"
-    t.integer  "save_DC"
+    t.string   "save_type",             default: "Fort"
+    t.integer  "save_DC",               default: 0
     t.integer  "str_change",            default: 0
     t.integer  "dex_change",            default: 0
     t.integer  "con_change",            default: 0
@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 20161120051336) do
     t.integer  "wis_change",            default: 0
     t.integer  "cha_change",            default: 0
     t.integer  "encounter_creature_id"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.index ["encounter_creature_id"], name: "index_statuses_on_encounter_creature_id", using: :btree
   end
 

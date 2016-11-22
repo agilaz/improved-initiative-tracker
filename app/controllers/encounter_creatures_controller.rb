@@ -12,7 +12,6 @@ class EncounterCreaturesController < ApplicationController
   def create
     number = high_num + 1
     params[:quantity].to_i.times do
-      #todo name each uniquely?
       @creature = EncounterCreature.new(encounter_creature_params)
       @creature.copy(Creature.find(params[:base_id]))
       @creature.number = number

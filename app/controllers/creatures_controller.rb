@@ -10,12 +10,13 @@ class CreaturesController < ApplicationController
 
   def new
     @creature = Creature.new
+    session[:previous_url] = request.referer
   end
 
   def create
     @creature = Creature.new(creature_params)
     if @creature.save
-      redirect_to(creatures_path)
+      redirect_to(session[:previous_url])
     else
       render('new')
     end

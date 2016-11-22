@@ -1,7 +1,8 @@
 class EncounterCreature < Creature
   has_many :statuses
 
-  scope :initiative_order, lambda {order("initiative DESC, dexterity DESC")}
+  scope :initiative_order, lambda { order("initiative DESC, dexterity DESC") }
+
   def copy(other)
     self.attributes = other.attributes.except("type", "id", "initiative")
   end
@@ -23,13 +24,7 @@ class EncounterCreature < Creature
   end
 
   def next_turn
-    statuses.each do |status|
-      status.duration -= 1
-      if status.duration <= 0
-        remove_status(status)
-        next
-      end
-
+    statuses.to_a.each do |status|
       ability = 0
       if status.save_type == "Fort"
         ability = self.fortitude
