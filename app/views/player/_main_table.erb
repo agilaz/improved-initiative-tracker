@@ -1,0 +1,38 @@
+<!--Name: Edward Kennedy-->
+<!--Course: CSC 415-->
+<!--Semester: Fall 2016-->
+<!--Instructor: Dr. Pulimood-->
+<!--Project name: Improved Initiative Tracker-->
+<!--Description: Pathfinder initiative tracker and status manager-->
+<!--Filename:player/_main_table.erb-->
+<!--Description:shows the main table; the encounter itself from the player's view-->
+<!--Last modified on: 12/12/16-->
+<% creatures = make_player_list %>
+<table class="table table-bordered table-striped" summary="Encounter">
+  <tr>
+    <th style="width:5%">Init</th>
+    <th style="width:25%">Name</th>
+    <th style="width:45%">Statuses</th>
+    <th style="width:10%">Details</th>
+  </tr>
+  <% creatures.each do |creature| %>
+      <tr>
+        <td><%= creature.initiative %></td>
+        <td><%= creature.name %> <%= creature.number %></td>
+        <td>
+          <table>
+            <tr>
+              <% creature.statuses.each do |status| %>
+                  <td class="statuses">
+                    <%= link_to(status.name, statuses_player_show_path(:id => status.id)) %>: <%= status.duration %>
+                  </td>
+              <% end %>
+            </tr>
+          </table>
+
+        </td>
+        <td> <%= link_to("View", encounter_creatures_player_show_path(:id => creature.id)) %> </td>
+
+      </tr>
+  <% end %>
+</table>

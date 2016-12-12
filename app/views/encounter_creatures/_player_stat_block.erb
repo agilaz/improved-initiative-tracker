@@ -1,0 +1,51 @@
+<!--Name: Edward Kennedy-->
+<!--Course: CSC 415-->
+<!--Semester: Fall 2016-->
+<!--Instructor: Dr. Pulimood-->
+<!--Project name: Improved Initiative Tracker-->
+<!--Description: Pathfinder initiative tracker and status manager-->
+<!--Filename:encounter_creatures/_player_stat_block.erb-->
+<!--Description:shows some information from the stat block for an encounter creature-->
+<!--Last modified on: 12/12/16-->
+<div style="border:1px solid black">
+  <table style="width:100%; text-align:center">
+    <tr style="height:30px; border-bottom: 1px solid gainsboro">
+      <td><strong>Name: </strong>
+        <%= creature.name %>
+      </td>
+    </tr>
+    <tr class="section" style="height:100px">
+      <td><strong>Description</strong><br>
+        <%= creature.description %>
+      </td>
+    </tr>
+    <tr>
+      <table class="section" style="height:50px">
+        <tr>
+          <td><strong>Init </strong>
+            <%= creature.initiative %></td>
+        </tr>
+      </table>
+    </tr>
+
+
+    <tr>
+      <td>
+        <strong>
+          <center>Statuses</center>
+        </strong>
+      </td>
+    </tr>
+    <tr>
+      <table style="width:100%; text-align:center">
+        <tr>
+          <% creature.statuses.each do |status| %>
+              <td class="statuses">
+                <%= status.name %>: <%= status.duration %>
+              </td>
+          <% end %>
+        </tr>
+      </table>
+    </tr>
+  </table>
+</div>

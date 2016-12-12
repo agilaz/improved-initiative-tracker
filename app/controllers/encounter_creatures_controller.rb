@@ -6,10 +6,14 @@
 # Description: Pathfinder initiative tracker and status manager
 # Filename:encounter_creatures_controller.rb
 # Description:handles the views for creatures currently in the encounter
-# Last modified on: 11/22/16
+# Last modified on: 12/12/16
 class EncounterCreaturesController < ApplicationController
 
   def show
+    @creature = EncounterCreature.find(params[:id])
+  end
+
+  def player_show
     @creature = EncounterCreature.find(params[:id])
   end
 

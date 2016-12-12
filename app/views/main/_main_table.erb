@@ -6,7 +6,7 @@
 <!--Description: Pathfinder initiative tracker and status manager-->
 <!--Filename:main/_main_table.erb-->
 <!--Description:shows the main table; the encounter itself and the control buttons-->
-<!--Last modified on: 11/22/16-->
+<!--Last modified on: 12/12/16-->
 <% creatures = make_list %>
 <table class="table table-bordered table-striped" summary="Encounter">
   <tr>
@@ -14,8 +14,9 @@
     <th style="width:25%">Name</th>
     <th style="width:5%">AC</th>
     <th style="width:45%">Statuses</th>
-    <th style="width:10%">Details</th>
-    <th style="width:10%">Remove</th>
+    <th style="width:7.5%">Details</th>
+    <th style="width:7.5%">Show</th>
+    <th style="width:5%">Remove</th>
   </tr>
   <% creatures.each do |creature| %>
       <tr>
@@ -37,6 +38,7 @@
 
         </td>
         <td> <%= link_to("View", encounter_creature_path(:id => creature.id)) %> </td>
+        <td> <%= link_to(show_hide(creature), main_toggle_hidden_path(:id => creature.id)) %></td>
         <td><strong><%= link_to("X", delete_encounter_creature_path(:id => creature.id)) %></strong></td>
 
       </tr>
