@@ -9,5 +9,6 @@
 # Last modified on: 12/13/16
 class Encounter < ApplicationRecord
   has_many :encounter_creatures
+  belongs_to :user
   validates_presence_of :name
 end

@@ -7,7 +7,7 @@
 <!--Filename:encounters/_encounters_table.erb-->
 <!--Description:shows a list of encounters-->
 <!--Last modified on: 12/13/16-->
-<% encounters = Encounter.all %>
+<% encounters = Encounter.where(:user_id => session[:user_id]) %>
 <%= link_to("<< Back to Current Encounter", root_path) %>
 <table class="table table-bordered table-striped" style="width: 100%">
   <tr>

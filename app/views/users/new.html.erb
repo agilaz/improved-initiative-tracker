@@ -1,0 +1,37 @@
+<!--Name: Edward Kennedy-->
+<!--Course: CSC 415-->
+<!--Semester: Fall 2016-->
+<!--Instructor: Dr. Pulimood-->
+<!--Project name: Improved Initiative Tracker-->
+<!--Description: Pathfinder initiative tracker and status manager-->
+<!--Filename:user/new.html.erb-->
+<!--Description:Form for adding a new user-->
+<!--Last modified on: 12/13/16-->
+<div class="col-md-6 col-md-offset-3">
+  <%= form_for(@user, :url => users_create_path) do |f| %>
+
+      <center><%= show_errors(f.object) %></center>
+
+      <center>
+        <table>
+          <tr>
+            <td><strong>Username &nbsp</strong></td>
+            <td><%= f.text_field(:username) %></td>
+          </tr>
+          <tr>
+            <td><strong>Password &nbsp</strong></td>
+            <td><%= f.password_field(:password) %></td>
+          </tr>
+          <tr>
+            <td><strong>Confirm Password  &nbsp</strong></td>
+          <td><%= f.password_field(:password_confirmation) %></td>
+          </tr>
+
+        </table>
+      </center>
+      <br>
+      <div class="col-md-4 col-md-offset-4">
+        <%= f.submit("Create user", :class => 'btn btn-block') %>
+      </div>
+  <% end %>
+</div>

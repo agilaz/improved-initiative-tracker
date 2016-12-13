@@ -1,4 +1,15 @@
 /*
+Name: Edward Kennedy
+Course: CSC 415
+Semester: Fall 2016
+Instructor: Dr. Pulimood
+Project name: Improved Initiative Tracker
+Description: Pathfinder initiative tracker and status manager
+Filename:application.css
+Description:Sets the styles used throughout the application
+Last modified on: 12/13/16
+*/
+/*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -16,6 +27,10 @@
 @import "_bootstrap.scss";
 body {
     background-color: #e5e5f5;
+}
+.login-bar {
+    background-color: #c8c8f3;
+    border-bottom: 1px solid grey !important;
 }
 
 .table-bordered td, .table-bordered th {

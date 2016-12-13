@@ -17,8 +17,9 @@ class EncountersController < ApplicationController
   end
 
   def create
+    user = User.find(session[:user_id])
     @encounter = Encounter.new(encounter_params)
-    if @encounter.save
+    if user.encounters << @encounter
       session[:encounter_id] = @encounter.id
       redirect_to(main_index_path)
     else
@@ -44,5 +45,12 @@ class EncountersController < ApplicationController
   def load_encounter
     session[:encounter_id] = params[:id]
     redirect_to(main_index_path)
+  end
+
+  private
+  def validate_ownership
+    if session[:user_id]
+
+    end
   end
 end

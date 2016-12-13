@@ -11,6 +11,13 @@ Rails.application.routes.draw do
 
   root :to => 'main#index'
 
+  get 'users/new'
+  post 'users/create'
+
+  get 'access/login'
+  post 'access/try_login'
+  get 'access/logout'
+
   get 'main/index'
   get 'player/index'
   post 'main/cycle_list'

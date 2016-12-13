@@ -6,8 +6,9 @@
 <!--Description: Pathfinder initiative tracker and status manager-->
 <!--Filename:player/_main_table.erb-->
 <!--Description:shows the main table; the encounter itself from the player's view-->
-<!--Last modified on: 12/12/16-->
+<!--Last modified on: 12/13/16-->
 <% creatures = make_player_list %>
+<h3><center><%= Encounter.find(session[:encounter_id]).name %></center></h3>
 <table class="table table-bordered table-striped" summary="Encounter">
   <tr>
     <th style="width:5%">Init</th>

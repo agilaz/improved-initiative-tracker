@@ -9,6 +9,7 @@
 <!--Last modified on: 12/13/16-->
 <% creatures = make_list %>
 <h3><center><%= Encounter.find(session[:encounter_id]).name %></center></h3>
+<center>Player's link: <%= link_to(encounters_load_encounter_url(:id => session[:encounter_id]), method: :post) %></center>
 <table class="table table-bordered table-striped" summary="Encounter">
   <tr>
     <th style="width:5%">Init</th>
