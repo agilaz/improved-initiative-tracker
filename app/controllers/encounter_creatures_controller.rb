@@ -6,7 +6,7 @@
 # Description: Pathfinder initiative tracker and status manager
 # Filename:encounter_creatures_controller.rb
 # Description:handles the views for creatures currently in the encounter
-# Last modified on: 12/12/16
+# Last modified on: 12/13/16
 class EncounterCreaturesController < ApplicationController
 
   def show
@@ -23,6 +23,7 @@ class EncounterCreaturesController < ApplicationController
   end
 
   def create
+    encounter = Encounter.find(session[:encounter_id])
     number = high_num + 1
     params[:quantity].to_i.times do
       @creature = EncounterCreature.new(encounter_creature_params)
@@ -32,7 +33,7 @@ class EncounterCreaturesController < ApplicationController
       if params[:roll_init]
         @creature.roll_initiative
       end
-      unless @creature.save
+      unless encounter.encounter_creatures << @creature
         render('new')
       end
     end
@@ -68,7 +69,7 @@ class EncounterCreaturesController < ApplicationController
 
   def high_num
     name = Creature.find(params[:base_id]).name
-    creature = EncounterCreature.where(:name => name).order("number DESC").first
+    creature = EncounterCreature.where(:name => name).where(:encounter_id => session[:encounter_id]).order("number DESC").first
     if creature != nil
       return creature.number
     else

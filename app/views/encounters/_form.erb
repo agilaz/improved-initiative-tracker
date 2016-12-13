@@ -1,0 +1,25 @@
+<!--Name: Edward Kennedy-->
+<!--Course: CSC 415-->
+<!--Semester: Fall 2016-->
+<!--Instructor: Dr. Pulimood-->
+<!--Project name: Improved Initiative Tracker-->
+<!--Description: Pathfinder initiative tracker and status manager-->
+<!--Filename:encounters/_form.erb-->
+<!--Description:shows the form for adding a new encounter-->
+<!--Last modified on: 12/13/16-->
+<%= show_errors(f.object) %>
+<table style="width: 100%;border:1px solid black">
+  <tr>
+    <td>
+      <strong>Name: </strong>
+      <%= f.text_field(:name) %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <center><strong>Description</strong></center>
+      <center><%= f.text_area(:description, :size => '20x5') %></center>
+    </td>
+  </tr>
+</table>
+

@@ -1,0 +1,42 @@
+<!--Name: Edward Kennedy-->
+<!--Course: CSC 415-->
+<!--Semester: Fall 2016-->
+<!--Instructor: Dr. Pulimood-->
+<!--Project name: Improved Initiative Tracker-->
+<!--Description: Pathfinder initiative tracker and status manager-->
+<!--Filename:encounters/_encounters_table.erb-->
+<!--Description:shows a list of encounters-->
+<!--Last modified on: 12/13/16-->
+<% encounters = Encounter.all %>
+<%= link_to("<< Back to Current Encounter", root_path) %>
+<table class="table table-bordered table-striped" style="width: 100%">
+  <tr>
+    <th>
+      <strong>Name</strong>
+    </th>
+    <th>
+      <strong>Description</strong>
+    </th>
+    <th>
+      <strong>Load</strong>
+    </th>
+    <th>
+      <strong>Delete</strong>
+    </th>
+  </tr>
+  <% encounters.each do |encounter| %>
+      <tr>
+        <td>
+          <%= encounter.name %>
+        </td>
+        <td>
+          <%= encounter.description %>
+        </td>
+        <td> <%= link_to("Load", encounters_load_encounter_path(:id => encounter.id)) %> </td>
+        <td><strong><%= link_to("X", delete_encounter_path(:id => encounter.id)) %></strong></td>
+      </tr>
+  <% end %>
+</table>
+<div class="col-md-6 col-md-offset-3">
+  <%= button_to("Add new encounter", new_encounter_path, method: :get, :class => 'btn btn-block') %>
+</div>

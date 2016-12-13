@@ -1,0 +1,22 @@
+<!--Name: Edward Kennedy-->
+<!--Course: CSC 415-->
+<!--Semester: Fall 2016-->
+<!--Instructor: Dr. Pulimood-->
+<!--Project name: Improved Initiative Tracker-->
+<!--Description: Pathfinder initiative tracker and status manager-->
+<!--Filename:encounters/new.html.erb-->
+<!--Description:shows the form for adding a new encounter-->
+<!--Last modified on: 12/13/16-->
+<div class="col-md-6 col-md-offset-2">
+  <%= render(:partial => 'encounters_table') %>
+</div>
+<div class="col-md-3">
+  <div class="col-md-8 col-md-offset-2">
+    <%= link_to("<< Back", session[:previous_url]) %>
+    <%= form_for(@encounter) do |f| %>
+        <%= render(:partial => 'form', :locals => {:f => f}) %>
+        <br><%= f.submit("Create new encounter", :class => 'btn btn-large col-md-8 col-md-offset-2') %>
+    <% end %>
+  </div>
+
+</div>

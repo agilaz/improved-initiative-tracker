@@ -6,9 +6,10 @@
 # Description: Pathfinder initiative tracker and status manager
 # Filename:encounter_creature.rb
 # Description:stores all information about a creature in combat
-# Last modified on: 11/22/16
+# Last modified on: 12/13/16
 class EncounterCreature < Creature
   has_many :statuses
+  belongs_to :encounter
 
   scope :initiative_order, lambda { order("initiative DESC, dexterity DESC") }
 

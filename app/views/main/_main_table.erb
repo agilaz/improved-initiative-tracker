@@ -6,8 +6,9 @@
 <!--Description: Pathfinder initiative tracker and status manager-->
 <!--Filename:main/_main_table.erb-->
 <!--Description:shows the main table; the encounter itself and the control buttons-->
-<!--Last modified on: 12/12/16-->
+<!--Last modified on: 12/13/16-->
 <% creatures = make_list %>
+<h3><center><%= Encounter.find(session[:encounter_id]).name %></center></h3>
 <table class="table table-bordered table-striped" summary="Encounter">
   <tr>
     <th style="width:5%">Init</th>
@@ -48,3 +49,5 @@
 <div class="col-md-3"><%= button_to("View creature list", creatures_path, method: :get, :class => 'btn btn-block') %></div>
 <div class="col-md-3"><%= button_to("Add creature to encounter", new_encounter_creature_path, method: :get, :class => 'btn btn-block') %></div>
 <div class="col-md-3"><%= button_to("Add status", new_status_path, method: :get, :class => 'btn btn-block') %></div>
+<br><br>
+<div class="col-md-4 col-md-offset-4"><%= button_to("View all encounters", encounters_path, method: :get, :class => 'btn btn-block') %></div>

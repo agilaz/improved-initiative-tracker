@@ -1,0 +1,26 @@
+<!--Name: Edward Kennedy-->
+<!--Course: CSC 415-->
+<!--Semester: Fall 2016-->
+<!--Instructor: Dr. Pulimood-->
+<!--Project name: Improved Initiative Tracker-->
+<!--Description: Pathfinder initiative tracker and status manager-->
+<!--Filename:encounters/delete.html.erb-->
+<!--Description:shows the prompt to remove an encounter, with a preview of that encounter-->
+<!--Last modified on: 12/13/16-->
+<div class="col-md-6 col-md-offset-2">
+  <%= render(:partial => 'main/main_table') %>
+</div>
+<div class="col-md-3">
+  <div class="col-md-8 col-md-offset-2">
+    <%= link_to("<< Back", :back) %>
+    <%= form_for(@encounter, :url => encounter_path(@encounter), :method => 'delete') do |f| %>
+
+        <p><strong>Are you sure you want to delete <%=@encounter.name%>?</strong></p>
+
+        <br>
+        <%= f.submit("Delete Encounter", class: 'btn btn-danger col-md-8 col-md-offset-2') %>
+
+
+    <% end %>
+  </div>
+</div>
