@@ -13,6 +13,7 @@ class EncounterCreaturesController < ApplicationController
     @creature = EncounterCreature.find(params[:id])
   end
 
+  #player_show function added for the final exam
   def player_show
     @creature = EncounterCreature.find(params[:id])
   end
@@ -23,7 +24,7 @@ class EncounterCreaturesController < ApplicationController
   end
 
   def create
-    encounter = Encounter.find(session[:encounter_id])
+    encounter = Encounter.find(session[:encounter_id]) #Line added for the final exam
     number = high_num + 1
     params[:quantity].to_i.times do
       @creature = EncounterCreature.new(encounter_creature_params)
@@ -33,7 +34,7 @@ class EncounterCreaturesController < ApplicationController
       if params[:roll_init]
         @creature.roll_initiative
       end
-      unless encounter.encounter_creatures << @creature
+      unless encounter.encounter_creatures << @creature #Line modified for the final exam
         render('new')
       end
     end

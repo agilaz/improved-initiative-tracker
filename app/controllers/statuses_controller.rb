@@ -12,6 +12,7 @@ class StatusesController < ApplicationController
     @status = Status.find(params[:id])
   end
 
+  #player_show added for the final exam
   def player_show
     @status = Status.find(params[:id])
   end

@@ -11,6 +11,7 @@
   <% if Encounter.exists?(session[:encounter_id]) %>
       <%= render(:partial => 'main_table') %>
   <% else %>
+      <!--Added for the final exam-->
       <center>
         No encounter loaded.
         <%= link_to('Click here to choose one', encounters_path) %>

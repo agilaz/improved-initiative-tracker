@@ -9,7 +9,7 @@
 # Last modified on: 12/13/16
 class EncounterCreature < Creature
   has_many :statuses
-  belongs_to :encounter
+  belongs_to :encounter #Added for the final exam
 
   scope :initiative_order, lambda { order("initiative DESC, dexterity DESC") }
 

@@ -8,6 +8,7 @@
 # Description:used for the main index page
 # Last modified on: 12/13/16
 class MainController < ApplicationController
+  #index function was added for the final exam
   def index
     if Encounter.exists?(session[:encounter_id])
       encounter = Encounter.find(session[:encounter_id])
@@ -17,6 +18,7 @@ class MainController < ApplicationController
     end
   end
 
+  #toggle_hidden function was added for the final exam
   def toggle_hidden
     creature = EncounterCreature.find(params[:id])
     creature.update_attribute(:is_hidden, !creature.is_hidden)
