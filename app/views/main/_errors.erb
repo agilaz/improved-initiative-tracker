@@ -11,10 +11,10 @@
 <% if object && object.errors.size > 0 %>
     <div>
       <strong>You have <%= pluralize(object.errors.size, "error") %> in this form:</strong>
-      <ul>
+      <table>
         <% object.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
+            <tr><td><%= msg %></td></tr>
         <% end %>
-      </ul>
+      </table>
     </div>
 <% end %>

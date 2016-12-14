@@ -83,7 +83,7 @@
     <tr>
       <table class="table table-striped">
 
-        <% EncounterCreature.alphabetical.each do |c| %>
+        <% EncounterCreature.where(:encounter_id => session[:encounter_id]).alphabetical.each do |c| %>
             <tr>
               <td>
                 <%= check_box_tag('creature_ids[]', c.id) %>

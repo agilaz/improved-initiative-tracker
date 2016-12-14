@@ -20,8 +20,9 @@ class AccessController < ApplicationController
     end
     if authorized
       session[:user_id] = authorized.id
-      redirect_to(main_index_path)
+      redirect_to(encounters_path)
     else
+      flash.now[:notice] = "Invalid username or password."
       render('login')
     end
 
