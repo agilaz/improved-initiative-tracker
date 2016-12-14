@@ -14,12 +14,15 @@ class AccessController < ApplicationController
   end
 
   def try_login
+    #make sure fields exist to avoid errors
     if params[:username] && params[:password]
+      #grab user, try user-password combo
       user = User.where(:username => params[:username]).first
       if user
         authorized = user.authenticate(params[:password])
       end
     end
+    #If login was successful, go to encounters index page; otherwise stay on login page
     if authorized
       session[:user_id] = authorized.id
       redirect_to(encounters_path)

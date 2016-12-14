@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    #Make a new user and log them in
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id

@@ -34,7 +34,9 @@ class EncounterCreature < Creature
   end
 
   def next_turn
+    #For every status applied to the creature
     statuses.to_a.each do |status|
+      #Set the ability used to roll against the save DC
       ability = 0
       if status.save_type == "Fort"
         ability = self.fortitude
@@ -44,10 +46,12 @@ class EncounterCreature < Creature
         ability = self.will
       end
 
+      #Tick down duration; remove the status if its duration is not positive
       status.duration -= 1
       if status.duration <= 0
         remove_status(status)
       elsif status.repeat_save? and roll_save(ability) >= status.save_DC
+        #If the creature is allowed to roll, and successfully rolled the save, then remove status
         remove_status(status)
       else
         status.save
@@ -56,6 +60,7 @@ class EncounterCreature < Creature
   end
 
   def add_status(status)
+    #Add status to list and apply all of its stat changes
     statuses << status
     self.strength += status.str_change
     self.dexterity += status.dex_change
@@ -67,6 +72,7 @@ class EncounterCreature < Creature
   end
 
   def remove_status(status)
+    #Remove stat changes and status
     self.strength -= status.str_change
     self.dexterity -= status.dex_change
     self.constitution -= status.con_change

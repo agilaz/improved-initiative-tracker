@@ -25,6 +25,7 @@ class StatusesController < ApplicationController
     if params[:creature_ids] != nil
     params[:creature_ids].each do |id|
       @status = Status.new(status_params)
+      #Add the status to all checked creatures
       unless EncounterCreature.find(id).add_status(@status)
         render('new')
         return

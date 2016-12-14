@@ -24,13 +24,17 @@ class EncounterCreaturesController < ApplicationController
   end
 
   def create
+    #Add creatures to the given encounter
     encounter = Encounter.find(session[:encounter_id]) #Line added for the final exam
+    #Find the next number to use for the names
     number = high_num + 1
+    #Loop through the number of creatures requested, adding each and incrementing the number next to their names
     params[:quantity].to_i.times do
       @creature = EncounterCreature.new(encounter_creature_params)
       @creature.copy(Creature.find(params[:base_id]))
       @creature.number = number
       number += 1
+      #Auto-roll initiative if the box was checked; otherwise, initiative score from the form is used
       if params[:roll_init]
         @creature.roll_initiative
       end
