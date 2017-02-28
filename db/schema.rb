@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 20161213211057) do
 
-  create_table "creatures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "creatures", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.integer  "armor_class",             default: 0
@@ -38,7 +41,7 @@ ActiveRecord::Schema.define(version: 20161213211057) do
     t.index ["encounter_id"], name: "index_creatures_on_encounter_id", using: :btree
   end
 
-  create_table "encounters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "encounters", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",  null: false
@@ -47,7 +50,7 @@ ActiveRecord::Schema.define(version: 20161213211057) do
     t.index ["user_id"], name: "index_encounters_on_user_id", using: :btree
   end
 
-  create_table "statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "statuses", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.integer  "duration",              default: 1
@@ -66,7 +69,7 @@ ActiveRecord::Schema.define(version: 20161213211057) do
     t.index ["encounter_creature_id"], name: "index_statuses_on_encounter_creature_id", using: :btree
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "password_digest"
     t.datetime "created_at",      null: false
